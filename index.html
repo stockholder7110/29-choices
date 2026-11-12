@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#111d32" />
+  <meta name="description" content="29인의 선택: 당신이 아는 그 순장, 진짜 그 순장의 선택은?" />
+  <title>29인의 선택 — 2026 Year-End</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="questions.js" defer></script>
+  <script src="data.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body class="game-body">
+  <div class="ambient ambient-one" aria-hidden="true"></div><div class="ambient ambient-two" aria-hidden="true"></div>
+  <main class="shell">
+    <header class="topbar">
+      <span class="logo-mark"><span class="logo-star">✦</span> THE OTHER SIDE</span>
+      <span class="topbar-right">2026 / YEAR-END GAME</span>
+    </header>
+    <div id="demoBanner" class="demo-banner hidden" role="status">샘플 데이터로 실행 중 · 실제 29명 응답이 아닙니다</div>
+    <section id="screenIntro" class="screen active" aria-labelledby="introTitle">
+      <div class="eyebrow">A GAME ABOUT WHAT WE THINK WE KNOW</div>
+      <div class="hero-symbol" aria-hidden="true"><span>?</span><span>↔</span><span>!</span></div>
+      <h1 id="introTitle" class="hero-title">내가 아는 너,<br><em>사실은 누구?</em></h1>
+      <p class="hero-copy">한 사람을 떠올리며 15번의 선택을 해보세요.<br>당신이 그린 그 사람은, 과연 누구와 가장 닮았을까요?</p>
+      <div class="intro-instruction">
+        <div class="instruction-no">01</div><p>사회자가 알려준 <strong>오늘의 순장</strong>을 떠올립니다.</p>
+        <div class="instruction-no">02</div><p>그 순장이 고를 법한 답을 선택합니다.</p>
+        <div class="instruction-no">03</div><p>끝까지 선택하면 <strong>진짜 닮은 사람</strong>이 나타납니다.</p>
+      </div>
+      <button class="btn btn-primary btn-full" id="startButton" type="button">선택 시작하기 <span aria-hidden="true">↗</span></button>
+      <p class="footnote">정답이 있는 시험이 아닙니다. 순장의 사전 응답과 비교하는 게임입니다.</p>
+    </section>
+    <section id="screenQuestion" class="screen" aria-labelledby="questionTitle">
+      <div class="section-head"><span class="tag" id="sectionLabel">SECTION 01</span><span class="step-count" id="questionCount">01 / 15</span></div>
+      <div class="progress-track" aria-hidden="true"><div id="progressFill" class="progress-fill"></div></div>
+      <div class="q-prelude">그 사람이 이 상황에 놓였다면?</div>
+      <h2 id="questionTitle" class="question-title"></h2>
+      <div id="options" class="options" role="radiogroup" aria-label="선택지"></div>
+      <div class="action-row">
+        <button class="btn btn-secondary" id="backButton" type="button">← 이전</button>
+        <button class="btn btn-primary" id="nextButton" type="button" disabled>다음 선택 →</button>
+      </div>
+      <p class="small-hint">내 생각이 아니라, 그 순장의 입장에서 골라주세요.</p>
+    </section>
+    <section id="screenResult" class="screen" aria-labelledby="resultHeading">
+      <div class="eyebrow center">THE FINAL REVEAL</div>
+      <div class="result-symbol" aria-hidden="true">✷</div>
+      <h2 id="resultHeading" class="result-heading">당신이 떠올린 그 사람은…</h2>
+      <div class="result-panel">
+        <div class="result-label" id="matchBadge">가장 많이 일치한 순장</div>
+        <h3 id="winnerName" class="winner-name">—</h3>
+        <p class="winner-sub" id="winnerCopy"></p>
+        <div class="stat-big"><span id="winnerScore">—</span><small id="totalScore">/ 15 일치</small></div>
+      </div>
+      <div class="target-panel">
+        <div class="panel-heading"><span>사회자가 지정한 순장의 실제 결과</span><span id="targetRank" class="rank-pill"></span></div>
+        <div class="target-name" id="targetName"></div>
+        <div class="score-row"><span>일치한 선택</span><strong id="targetScore"></strong></div>
+        <div class="track"><div class="track-inner" id="targetBar"></div></div>
+        <div id="targetNote" class="muted-note"></div>
+      </div>
+      <div class="result-subheading">선택이 가장 많이 겹친 사람들</div>
+      <div id="topThree" class="leaderboard"></div>
+      <button class="btn btn-outline btn-full" id="revealButton" type="button" aria-expanded="false">우리가 달랐던 선택 보기 ↓</button>
+      <div id="differences" class="difference-list hidden"></div>
+      <button class="btn btn-primary btn-full" id="restartButton" type="button">같은 순장으로 다시 해보기 ↻</button>
+      <p class="footnote">이 결과는 15개 선택의 단순 일치 개수입니다. 실제 성격이나 친밀도를 판단하는 검사가 아닙니다.</p>
+    </section>
+    <section id="screenError" class="screen" aria-labelledby="errorTitle">
+      <div class="hero-symbol" aria-hidden="true">!</div><h1 id="errorTitle" class="hero-title">게임을 시작할 수 없어요.</h1><p id="errorCopy" class="hero-copy"></p>
+      <a class="btn btn-secondary btn-full" href="host.html">사회자 도구 열기</a>
+    </section>
+    <footer class="site-footer"><span>29 CHOICES · 2026</span><span>WE SEE EACH OTHER DIFFERENTLY.</span></footer>
+  </main>
+</body>
+</html>
